@@ -5,6 +5,7 @@ import pacienteRutas from './src/routes/paciente.route.js'
 import medicoRutas from './src/routes/medico.route.js'
 import medicamentoRutas from './src/routes/medicamento.routes.js'
 import citaRutas from './src/routes/citas.route.js'
+import historiaClinicaRutas from './src/routes/historiaClinica.route.js'
 
 
 const app = express();
@@ -19,6 +20,7 @@ app.use("/",pacienteRutas);
 app.use("/",medicoRutas);
 app.use("/",medicamentoRutas);
 app.use("/",citaRutas);
+app.use("/",historiaClinicaRutas);
 
 
 

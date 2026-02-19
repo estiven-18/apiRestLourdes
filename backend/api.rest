@@ -199,3 +199,38 @@ Content-Type: application/json
 
 ### Eliminar cita
 DELETE {{baseURL}}/cita/borrar/1
+
+################################################################################
+### HISTORIA CLÍNICA  
+################################################################################
+
+### Listar todas las historias clínicas
+GET {{baseURL}}/historiaclinica/listartodos
+
+### Listar historia clínica por ID
+GET {{baseURL}}/historiaclinica/listarporid/2
+
+### Crear nueva historia clínica
+POST {{baseURL}}/historiaclinica/crearHistoriaClinica
+Content-Type: application/json
+
+{
+  "fecha_atencion": "2027-02-20T05:00:00.000Z",
+  "sintomas": "Dolor en la frente",
+  "observaciones": "Se ordenan examenes",
+  "citas_id_citas": 1
+}
+
+### Editar historia clínica
+PUT {{baseURL}}/historiaclinica/editar/1
+Content-Type: application/json
+
+{
+  "fecha_atencion": "2027-02-21T05:00:00.000Z",
+  "sintomas": "Dolor en la frente y fiebre",
+  "observaciones": "Se ordenan examenes de sangre",
+  "citas_id_citas": 1
+}
+
+### Eliminar historia clínica
+DELETE {{baseURL}}/historiaclinica/borrar/1
