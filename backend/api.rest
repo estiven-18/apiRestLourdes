@@ -154,3 +154,48 @@ Content-Type: application/json
 
 ### Eliminar medicamento
 DELETE {{baseURL}}/medicamento/borrar/1
+
+################################################################################
+### CITAS
+################################################################################
+
+### Listar todas las citas
+GET {{baseURL}}/cita/listartodos  
+
+### Listar cita por ID
+GET {{baseURL}}/cita/listarporid/1
+
+### Crear nueva cita
+POST {{baseURL}}/cita/crearCita
+Content-Type: application/json
+
+{
+  "fecha_cita": "2024-07-01",
+  "hora_inicio": "10:00:00",
+  "hora_fin": "10:30:00",
+  "motivo": "Consulta general",
+  "observaciones": "Paciente con síntomas de resfriado",
+  "fecha_creacion": "2024-06-30",
+  "medicos_id_medicos": 1,
+  "pacientes_id_pacientes": 1,
+  "creado_por": 4
+}
+
+### Editar cita
+PUT {{baseURL}}/cita/editar/1 
+Content-Type: application/json
+
+{
+  "fecha_cita": "2024-07-02",
+  "hora_inicio": "11:00:00",
+  "hora_fin": "11:30:00",
+  "motivo": "Consulta de seguimiento",
+  "observaciones": "Paciente mejorando, pero con tos persistente",
+  "fecha_creacion": "2024-06-30",
+  "medicos_id_medicos": 1,
+  "pacientes_id_pacientes": 2,
+  "creado_por": 4
+}
+
+### Eliminar cita
+DELETE {{baseURL}}/cita/borrar/1

@@ -4,6 +4,7 @@ import usuarioRutas from './src/routes/usuario.route.js'
 import pacienteRutas from './src/routes/paciente.route.js'
 import medicoRutas from './src/routes/medico.route.js'
 import medicamentoRutas from './src/routes/medicamento.routes.js'
+import citaRutas from './src/routes/citas.route.js'
 
 
 const app = express();
@@ -17,6 +18,8 @@ app.use("/",usuarioRutas);
 app.use("/",pacienteRutas);
 app.use("/",medicoRutas);
 app.use("/",medicamentoRutas);
+app.use("/",citaRutas);
+
 
 
 

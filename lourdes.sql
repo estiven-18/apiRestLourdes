@@ -32,7 +32,7 @@ CREATE TABLE `campañas` (
   `titulo` varchar(45) NOT NULL,
   `mensaje` text NOT NULL,
   `fecha_inicio` date NOT NULL,
-  `fecha_fin` varchar(45) NOT NULL,
+  `fecha_fin` date NOT NULL,
   `tipo` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
