@@ -1,0 +1,156 @@
+### Variables
+@baseURL = http://localhost:3000
+
+################################################################################
+### USUARIOS
+################################################################################
+
+### Listar todos los usuarios
+GET {{baseURL}}/usuario/listartodos
+
+### Listar usuario por ID
+GET {{baseURL}}/usuario/listarporid/1
+
+### Crear nuevo usuario
+POST {{baseURL}}/usuario/crearUsuario
+Content-Type: application/json
+
+{
+  "nombre": "Juan Pérez",
+  "documento": "6",
+  "telefono": "555-1234",
+  "contraseña": "123456",
+  "rol": "admin"
+}
+
+### Editar usuario
+PUT {{baseURL}}/usuario/editar/1
+Content-Type: application/json
+
+{
+  "nombre": "Juan Pérez Actualizado",
+  "documento": "1001",
+  "telefono": "555-5678",
+  "contraseña": "654321",
+  "rol": "usuario"
+}
+
+### Eliminar usuario
+DELETE {{baseURL}}/usuario/borrar/1
+
+################################################################################
+### PACIENTES
+################################################################################
+
+### Listar todos los pacientes
+GET {{baseURL}}/paciente/listartodos
+
+### Listar paciente por ID
+GET {{baseURL}}/paciente/listarporid/1
+
+### Crear nuevo paciente
+POST {{baseURL}}/paciente/crearPaciente
+Content-Type: application/json
+
+{
+  "documento": "10012345678",
+  "nombre": "María González",
+  "genero": "Femenino",
+  "telefono": "555-1234",
+  "email": "maria@example.com",
+  "eps": "Sura",
+  "tipo_ingreso": "Consulta externa"
+}
+
+### Editar paciente
+PUT {{baseURL}}/paciente/editar/1
+Content-Type: application/json
+
+{
+  "documento": "1001234567",
+  "nombre": "María González López",
+  "genero": "Femenino",
+  "telefono": "555-5678",
+  "email": "maria.lopez@example.com",
+  "eps": "Sanitas",
+  "tipo_ingreso": "EPS"
+}
+
+### Eliminar paciente
+DELETE {{baseURL}}/paciente/borrar/1
+
+################################################################################
+### MÉDICOS
+################################################################################
+
+### Listar todos los médicos
+GET {{baseURL}}/medico/listartodos
+
+### Listar médico por ID
+GET {{baseURL}}/medico/listarporid/3
+
+### Crear nuevo médico
+POST {{baseURL}}/medico/crearPaciente
+Content-Type: application/json
+
+{
+  "usuarios_id_usuarios": 2,
+  "especialidad": "Cardiología"
+}
+
+### Editar médico (cambiar usuario)
+PUT {{baseURL}}/medico/editar/1
+Content-Type: application/json
+
+{
+  "usuarios_id_usuarios": 2
+}
+
+### Editar médico (cambiar ambos)
+PUT {{baseURL}}/medico/editar/1
+Content-Type: application/json
+
+{
+  "usuarios_id_usuarios": 3,
+  "especialidad": "Medicina gayyyyyyy"
+}
+
+### Eliminar médico
+DELETE {{baseURL}}/medico/borrar/1
+
+################################################################################
+### MEDICAMENTOS
+################################################################################
+
+### Listar todos los medicamentos
+GET {{baseURL}}/medicamento/listartodos
+
+### Listar medicamento por ID
+GET {{baseURL}}/medicamento/listarporid/2
+
+### Crear nuevo medicamento
+POST {{baseURL}}/medicamento/crearMedicamento
+Content-Type: application/json
+
+{
+  "nombre": "Acetaminofen 500mg",
+  "laboratorio": "Genfar",
+  "stock": 100,
+  "precio": 1500,
+  "fecha_vencimiento": "2027-01-01"
+}
+
+### Editar medicamento (todos los campos)
+PUT {{baseURL}}/medicamento/editar/1
+Content-Type: application/json
+
+{
+  "nombre": "Acetaminofen 500mg Actualizado",
+  "laboratorio": "dddddddddddddddddd",
+  "stock": 150,
+  "precio": 1800,
+  "fecha_vencimiento": "2027-06-01"
+}
+
+### Eliminar medicamento
+DELETE {{baseURL}}/medicamento/borrar/1
