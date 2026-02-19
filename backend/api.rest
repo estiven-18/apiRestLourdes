@@ -234,3 +234,38 @@ Content-Type: application/json
 
 ### Eliminar historia clínica
 DELETE {{baseURL}}/historiaclinica/borrar/1
+
+################################################################################
+### HORARIOS
+################################################################################
+
+### Listar todos los horarios
+GET {{baseURL}}/horario/listartodos
+
+### Listar horario por ID
+GET {{baseURL}}/horario/listarporid/1
+
+### Crear nuevo horario
+POST {{baseURL}}/horario/crearHorario
+Content-Type: application/json
+
+{
+  "dia_semana": "domingo",
+  "hora_inicio": "08:00:00",
+  "hora_fin": "16:00:00",
+  "medicos_id_medicos": 1
+}
+
+### Editar horario
+PUT {{baseURL}}/horario/editar/1
+Content-Type: application/json
+
+{
+  "dia_semana": "sábado",
+  "hora_inicio": "09:00:00",
+  "hora_fin": "17:00:00",     
+  "medicos_id_medicos": 1
+}
+
+### Eliminar horario
+DELETE {{baseURL}}/horario/borrar/1

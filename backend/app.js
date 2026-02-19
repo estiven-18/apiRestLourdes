@@ -6,6 +6,7 @@ import medicoRutas from './src/routes/medico.route.js'
 import medicamentoRutas from './src/routes/medicamento.routes.js'
 import citaRutas from './src/routes/citas.route.js'
 import historiaClinicaRutas from './src/routes/historiaClinica.route.js'
+import horarioRutas from './src/routes/horario.route.js'
 
 
 const app = express();
@@ -21,6 +22,7 @@ app.use("/",medicoRutas);
 app.use("/",medicamentoRutas);
 app.use("/",citaRutas);
 app.use("/",historiaClinicaRutas);
+app.use("/",horarioRutas);
 
 
 
