@@ -17,10 +17,10 @@ Content-Type: application/json
 
 {
   "nombre": "Juan Pérez",
-  "documento": "6",
+  "documento": "12",
   "telefono": "555-1234",
   "contraseña": "123456",
-  "rol": "admin"
+  "rol": "medico"
 }
 
 ### Editar usuario
@@ -29,7 +29,7 @@ Content-Type: application/json
 
 {
   "nombre": "Juan Pérez Actualizado",
-  "documento": "1001",
+  "documento": "100",
   "telefono": "555-5678",
   "contraseña": "654321",
   "rol": "usuario"
@@ -68,7 +68,7 @@ Content-Type: application/json
 
 {
   "documento": "1001234567",
-  "nombre": "María González López",
+  "nombre": "María González López edit",
   "genero": "Femenino",
   "telefono": "555-5678",
   "email": "maria.lopez@example.com",
@@ -87,14 +87,14 @@ DELETE {{baseURL}}/paciente/borrar/1
 GET {{baseURL}}/medico/listartodos
 
 ### Listar médico por ID
-GET {{baseURL}}/medico/listarporid/3
+GET {{baseURL}}/medico/listarporid/2
 
 ### Crear nuevo médico
 POST {{baseURL}}/medico/crearPaciente
 Content-Type: application/json
 
 {
-  "usuarios_id_usuarios": 2,
+  "usuarios_id_usuarios": 8,
   "especialidad": "Cardiología"
 }
 
@@ -116,7 +116,7 @@ Content-Type: application/json
 }
 
 ### Eliminar médico
-DELETE {{baseURL}}/medico/borrar/1
+DELETE {{baseURL}}/medico/borrar/2
 
 ################################################################################
 ### MEDICAMENTOS
@@ -141,7 +141,7 @@ Content-Type: application/json
 }
 
 ### Editar medicamento (todos los campos)
-PUT {{baseURL}}/medicamento/editar/1
+PUT {{baseURL}}/medicamento/editar/2
 Content-Type: application/json
 
 {
@@ -208,7 +208,7 @@ DELETE {{baseURL}}/cita/borrar/1
 GET {{baseURL}}/historiaclinica/listartodos
 
 ### Listar historia clínica por ID
-GET {{baseURL}}/historiaclinica/listarporid/2
+GET {{baseURL}}/historiaclinica/listarporid/3
 
 ### Crear nueva historia clínica
 POST {{baseURL}}/historiaclinica/crearHistoriaClinica
@@ -222,7 +222,7 @@ Content-Type: application/json
 }
 
 ### Editar historia clínica
-PUT {{baseURL}}/historiaclinica/editar/1
+PUT {{baseURL}}/historiaclinica/editar/3
 Content-Type: application/json
 
 {
@@ -233,7 +233,7 @@ Content-Type: application/json
 }
 
 ### Eliminar historia clínica
-DELETE {{baseURL}}/historiaclinica/borrar/1
+DELETE {{baseURL}}/historiaclinica/borrar/3
 
 ################################################################################
 ### HORARIOS
@@ -243,7 +243,7 @@ DELETE {{baseURL}}/historiaclinica/borrar/1
 GET {{baseURL}}/horario/listartodos
 
 ### Listar horario por ID
-GET {{baseURL}}/horario/listarporid/1
+GET {{baseURL}}/horario/listarporid/2
 
 ### Crear nuevo horario
 POST {{baseURL}}/horario/crearHorario
@@ -261,10 +261,10 @@ PUT {{baseURL}}/horario/editar/1
 Content-Type: application/json
 
 {
-  "dia_semana": "sábado",
+  "dia_semana": "sábadoAAAAAA",
   "hora_inicio": "09:00:00",
   "hora_fin": "17:00:00",     
-  "medicos_id_medicos": 1
+  "medicos_id_medicos": 2
 }
 
 ### Eliminar horario

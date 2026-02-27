@@ -4,13 +4,13 @@ const db = cnx.promise();
 
 export const medicamentoModel = {
   findAll: async () => {
-    const sql = "SELECT * FROM medicamentos";
+    const sql = "SELECT * FROM medicamentos WHERE estado=1";
     const [rows] = await db.query(sql);
     return rows;
   },
 
   findById: async (id) => {
-    const sql = "SELECT * FROM medicamentos WHERE id_medicamentos=?";
+    const sql = "SELECT * FROM medicamentos WHERE id_medicamentos=? AND estado=1";
     const [rows] = await db.query(sql, [id]);
     return rows;
   },
@@ -22,7 +22,7 @@ export const medicamentoModel = {
   },
 
   delete: async (id)=>{
-    const sql= "DELETE FROM medicamentos WHERE id_medicamentos=?";
+    const sql= "UPDATE medicamentos SET estado=2 WHERE id_medicamentos=?";
     const [rows] =await db.query(sql,[id]);
     return rows;
   },

@@ -1,5 +1,6 @@
 import { cnx } from "./bdatos.js";
 
+//* ya esta hecha con la nueva base de datos "estado"
 const db = cnx.promise();
 
 export const citasModel = {
@@ -13,11 +14,15 @@ export const citasModel = {
     citas.observaciones,
     citas.fecha_creacion,
     usuarios.nombre AS nombre_medico,
-    pacientes.nombre AS nombre_paciente
+    usuarios.estado AS estado_usuario,
+    medicos.estado AS estado_medico,
+    pacientes.nombre AS nombre_paciente,
+    pacientes.estado AS estado_paciente
     FROM citas
     JOIN medicos ON citas.medicos_id_medicos = medicos.id_medicos
     JOIN usuarios ON medicos.usuarios_id_usuarios = usuarios.id_usuarios
-    JOIN pacientes ON citas.pacientes_id_pacientes = pacientes.id_pacientes`;
+    JOIN pacientes ON citas.pacientes_id_pacientes = pacientes.id_pacientes
+    WHERE citas.estado=1`;
     const [rows] = await db.query(sql);
     return rows;
   },
@@ -32,12 +37,15 @@ export const citasModel = {
     citas.observaciones,
     citas.fecha_creacion,
     usuarios.nombre AS nombre_medico,
-    pacientes.nombre AS nombre_paciente
+    usuarios.estado AS estado_usuario,
+    medicos.estado AS estado_medico,
+    pacientes.nombre AS nombre_paciente,
+    pacientes.estado AS estado_paciente
     FROM citas
     JOIN medicos ON citas.medicos_id_medicos = medicos.id_medicos
     JOIN usuarios ON medicos.usuarios_id_usuarios = usuarios.id_usuarios
     JOIN pacientes ON citas.pacientes_id_pacientes = pacientes.id_pacientes
-    WHERE citas.id_citas = ?`;
+    WHERE citas.id_citas = ? AND citas.estado=1`;
     const [rows] = await db.query(sql, [id]);
     return rows;
   },
@@ -49,7 +57,7 @@ export const citasModel = {
   },
 
   delete: async (id)=>{
-    const sql= "DELETE FROM citas WHERE id_citas=?";
+    const sql= "UPDATE citas SET estado=2 WHERE id_citas=?";
     const [rows] =await db.query(sql,[id]);
     return rows;
   },

@@ -16,6 +16,7 @@ export const medicoModel = {
         usuarios.rol
       FROM medicos medicos
       JOIN usuarios usuarios ON medicos.usuarios_id_usuarios = usuarios.id_usuarios
+      WHERE medicos.estado=1 AND usuarios.estado=1
     `;
     const [rows] = await db.query(sql);
     return rows;
@@ -34,20 +35,21 @@ export const medicoModel = {
         usuarios.rol
       FROM medicos medicos
       JOIN usuarios usuarios ON medicos.usuarios_id_usuarios = usuarios.id_usuarios
-      WHERE usuarios.id_usuarios = ?
+      WHERE usuarios.id_usuarios = ? AND medicos.estado=1 AND usuarios.estado=1
     `;
     const [rows] = await db.query(sql, [id]);
     return rows;
   },
 
   create: async (data) => {
+    
     const sql = "INSERT INTO medicos SET ?";
     const [rows] = await db.query(sql, [data]);
     return rows;
   },
 
   delete: async (id) => {
-    const sql = "DELETE FROM medicos WHERE id_medicos=?";
+    const sql = "UPDATE medicos SET estado=2 WHERE id_medicos=?";
     const [rows] = await db.query(sql, [id]);
     return rows;
   },
